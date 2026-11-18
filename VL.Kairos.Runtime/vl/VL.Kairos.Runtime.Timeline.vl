@@ -156,6 +156,7 @@
               <Pin Id="ObEt4ea35f3Ni7dPuWCS55" Name="Value" Kind="InputPin" />
               <Pin Id="VhSmMVujbHAOw8rOr6Niqy" Name="Output" Kind="OutputPin" />
               <Pin Id="TpouD4qkb8UQCE9amU1yt8" Name="Value" Kind="OutputPin" />
+              <Pin Id="JAbid19iGcDO5NOezz7ay6" Name="Author" Kind="InputPin" IsHidden="true" />
             </Node>
             <ControlPoint Id="U95rj3hIX4kM3efwk6M0Hl" Bounds="1024,462" />
             <ControlPoint Id="BCwKf7F8sXuLIvD7kHVg2y" Bounds="428,240" />
@@ -3873,8 +3874,11 @@
             <Choice Kind="ClassDefinition" Name="Class" />
           </p:NodeReference>
           <p:Interfaces>
-            <TypeReference LastCategoryFullName="StructureX" LastDependency="VL.StructureX.vl">
+            <TypeReference LastCategoryFullName="Kairos.Track" LastDependency="VL.Kairos.Runtime.Core.vl">
               <Choice Kind="InterfaceTypeFlag" Name="ITrack" />
+              <CategoryReference Kind="Category" Name="Track" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Kairos" NeedsToBeDirectParent="true" />
+              </CategoryReference>
             </TypeReference>
           </p:Interfaces>
           <Patch Id="NrK6IECYCBoQGBqxEWjR3r" IsGeneric="true" ExplicitTypeParameters="T">
@@ -4927,6 +4931,7 @@
                 <Pin Id="VqT6nBVPZF8PCsiUyHLOSx" Name="Value" Kind="InputPin" />
                 <Pin Id="RGvsUHZnYF9QTF4jKNjCtx" Name="Output" Kind="OutputPin" />
                 <Pin Id="UHbwh3WFwMBMWMV7eKE5Uf" Name="Value" Kind="OutputPin" />
+                <Pin Id="Tfq3rOkB6CwQbmQQ5ofBiS" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Node Bounds="2384,106,58,19" Id="AXag4tnihlQOxFjcp14aZ8">
                 <p:NodeReference LastCategoryFullName="Primitive.Object" LastDependency="VL.CoreLib.vl">
@@ -5340,6 +5345,7 @@
                 <Pin Id="Q56WZTxkQqMQH9ZqUksRlD" Name="Value" Kind="InputPin" />
                 <Pin Id="M4eB9ZZe76RQPArCFlFWi9" Name="Output" Kind="OutputPin" />
                 <Pin Id="Iqzqgj6hovRNKL1AvHENMs" Name="Value" Kind="OutputPin" />
+                <Pin Id="MX0YArdwI2dOO2orhBx7Gi" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="GPhPWCJSR6xMh9IZ3SSRxC" SlotId="P92YOtnZcNrQTQvEq3wgnD" Bounds="2169,864" />
               <ControlPoint Id="FMBrV9shqTmMZk00sYBGiI" Bounds="2169,902" />
@@ -5537,6 +5543,7 @@
                 <Pin Id="OmbaQ8fEQLNMHQLhFoFLaH" Name="Value" Kind="InputPin" />
                 <Pin Id="EZD05zGPAfFNBFZmWV2kZm" Name="Output" Kind="OutputPin" />
                 <Pin Id="K9kaNpfAwjBMY2SovA82hL" Name="Value" Kind="OutputPin" />
+                <Pin Id="RaedxtDsPpuLbooFsc3O9S" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Node Bounds="3275,907,55,26" Id="SJoSZbFPklKO2443S1x4aG">
                 <p:NodeReference LastCategoryFullName="Reactive.Channel" LastDependency="VL.CoreLib.vl">
@@ -5573,6 +5580,7 @@
                 <Pin Id="OmhzjIQt1CkPNK91Z35a2M" Name="Value" Kind="InputPin" />
                 <Pin Id="MLcn6Zx9xvcPaGd1WnsCZL" Name="Output" Kind="OutputPin" />
                 <Pin Id="H7WYNcelkFIOkE54VehiMx" Name="Value" Kind="OutputPin" />
+                <Pin Id="EGjTQCsnEBwOLU2MuWYMTt" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="KQUhP1kSdKYLXNYngwGhkk" SlotId="M5JGqTQnekuN57tzrMoNTH" Bounds="662,1667" />
               <Overlay Id="GrB79NSNWx8MOIOczjuJN7" Name="Cloned Embedding 1D" Bounds="80,1150,1495,631">
@@ -5590,6 +5598,7 @@
                 <Pin Id="VipbSNMrAzsQABDV6wLKRH" Name="Value" Kind="InputPin" />
                 <Pin Id="DMRCNkoqfgfM2J2CR87lwQ" Name="Output" Kind="OutputPin" />
                 <Pin Id="StrGQMHNTKNMa57A4EmgBt" Name="Value" Kind="OutputPin" />
+                <Pin Id="AvReT5kRLoXN0XnvqjkkSs" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="OfrU1zkxeyUO8qgwRTbVPy" Bounds="882,1679">
                 <p:TypeAnnotation LastCategoryFullName="Kairos.Runtime.Core.SamplingPositionProvider" LastDependency="VL.Kairos.Runtime.Core.vl">

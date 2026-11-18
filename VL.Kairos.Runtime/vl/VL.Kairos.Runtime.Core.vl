@@ -24324,8 +24324,11 @@
                 </p:TypeAnnotation>
               </Slot>
               <Slot Id="IuLABb4YaRgPvd1No1q9ds" Name="Track">
-                <p:TypeAnnotation p:Type="TypeReference">
+                <p:TypeAnnotation p:Type="TypeReference" LastCategoryFullName="Kairos.Track" LastDependency="VL.Kairos.Runtime.Core.vl">
                   <Choice Kind="TypeFlag" Name="ITrack" />
+                  <CategoryReference Kind="Category" Name="Track" NeedsToBeDirectParent="true">
+                    <p:OuterCategoryReference Kind="Category" Name="Kairos" NeedsToBeDirectParent="true" />
+                  </CategoryReference>
                   <p:TypeArguments>
                     <TypeReference>
                       <Choice Kind="TypeFlag" Name="T" />
