@@ -161,6 +161,7 @@
               <Pin Id="ObEt4ea35f3Ni7dPuWCS55" Name="Value" Kind="InputPin" />
               <Pin Id="VhSmMVujbHAOw8rOr6Niqy" Name="Output" Kind="OutputPin" />
               <Pin Id="TpouD4qkb8UQCE9amU1yt8" Name="Value" Kind="OutputPin" />
+              <Pin Id="RBmyBuj9zsOQHBcJ6tsvPQ" Name="Author" Kind="InputPin" IsHidden="true" />
             </Node>
             <ControlPoint Id="U95rj3hIX4kM3efwk6M0Hl" Bounds="1047,479" />
             <ControlPoint Id="BCwKf7F8sXuLIvD7kHVg2y" Bounds="428,225" />
@@ -4579,11 +4580,14 @@
             <Choice Kind="ClassDefinition" Name="Class" />
           </p:NodeReference>
           <p:Interfaces>
-            <TypeReference LastCategoryFullName="StructureX" LastDependency="VL.StructureX.vl">
-              <Choice Kind="InterfaceTypeFlag" Name="ITrack" />
-            </TypeReference>
             <TypeReference LastCategoryFullName="Kairos.Launcher.Track" LastDependency="VL.Kairos.Runtime.Launcher.vl">
               <Choice Kind="InterfaceTypeFlag" Name="ITrack (PresetEditor Ungeneric)" />
+            </TypeReference>
+            <TypeReference LastCategoryFullName="Kairos.Track" LastDependency="VL.Kairos.Runtime.Core.vl">
+              <Choice Kind="InterfaceTypeFlag" Name="ITrack" />
+              <CategoryReference Kind="Category" Name="Track" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Kairos" NeedsToBeDirectParent="true" />
+              </CategoryReference>
             </TypeReference>
           </p:Interfaces>
           <Patch Id="NrK6IECYCBoQGBqxEWjR3r" IsGeneric="true" ExplicitTypeParameters="T">
@@ -5304,6 +5308,7 @@
                 <Pin Id="NTFgk7ZG1GEMNoLrCK3PQF" Name="Value" Kind="InputPin" />
                 <Pin Id="FoS9VVQteIvM9NymqZVdtu" Name="Output" Kind="OutputPin" />
                 <Pin Id="AaMR1OaQofNP7gIXGyI9U3" Name="Value" Kind="OutputPin" />
+                <Pin Id="SCMNWWKAOdkPhWNltm2EmT" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="L89TGJrsUsePMU843lnxgH" SlotId="OIKZJzWknUzNDMq2fdQCWX" Bounds="343,79" />
               <Pad Id="Nh3oxpkmNosMLWrzyZ7eIP" SlotId="OIKZJzWknUzNDMq2fdQCWX" Bounds="854,1094" />
@@ -5814,6 +5819,7 @@
                 <Pin Id="Km7ieUZP0WMM6jRYdcXnks" Name="Value" Kind="InputPin" />
                 <Pin Id="Q4gyCHRULIUPwJNGuqsGZc" Name="Output" Kind="OutputPin" />
                 <Pin Id="RV9TKIgW2RBMcysbDDvLtO" Name="Value" Kind="OutputPin" />
+                <Pin Id="BKd2NtJgIEDN7VVN3IS9wb" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="HHLqjI6hud3Pbu2M6xX9PL" SlotId="CVFgfHOVdC8MpR5pjbw37F" Bounds="1026,329" />
               <Pad Id="JlDt8NjUYezMNrvl3LTuZ0" SlotId="EjS05dsD4I0LF6MRlKGpHz" Bounds="749,574" />
@@ -7104,6 +7110,7 @@
                 <Pin Id="VqT6nBVPZF8PCsiUyHLOSx" Name="Value" Kind="InputPin" />
                 <Pin Id="RGvsUHZnYF9QTF4jKNjCtx" Name="Output" Kind="OutputPin" />
                 <Pin Id="UHbwh3WFwMBMWMV7eKE5Uf" Name="Value" Kind="OutputPin" />
+                <Pin Id="Egva9e4dQgwPP9Tjojb906" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Node Bounds="2384,106,58,19" Id="AXag4tnihlQOxFjcp14aZ8">
                 <p:NodeReference LastCategoryFullName="Primitive.Object" LastDependency="VL.CoreLib.vl">
@@ -7504,6 +7511,7 @@
                 <Pin Id="Q56WZTxkQqMQH9ZqUksRlD" Name="Value" Kind="InputPin" />
                 <Pin Id="M4eB9ZZe76RQPArCFlFWi9" Name="Output" Kind="OutputPin" />
                 <Pin Id="Iqzqgj6hovRNKL1AvHENMs" Name="Value" Kind="OutputPin" />
+                <Pin Id="VwQoHRQb8z4P3xtEBEEN1X" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="GPhPWCJSR6xMh9IZ3SSRxC" SlotId="P92YOtnZcNrQTQvEq3wgnD" Bounds="2169,864" />
               <ControlPoint Id="FMBrV9shqTmMZk00sYBGiI" Bounds="2169,902" />
@@ -7661,6 +7669,7 @@
                 <Pin Id="OmbaQ8fEQLNMHQLhFoFLaH" Name="Value" Kind="InputPin" />
                 <Pin Id="EZD05zGPAfFNBFZmWV2kZm" Name="Output" Kind="OutputPin" />
                 <Pin Id="K9kaNpfAwjBMY2SovA82hL" Name="Value" Kind="OutputPin" />
+                <Pin Id="J7zMYBgCfYuQbveEFmhkot" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Node Bounds="3345,912,55,26" Id="SJoSZbFPklKO2443S1x4aG">
                 <p:NodeReference LastCategoryFullName="Reactive.Channel" LastDependency="VL.CoreLib.vl">
@@ -7697,6 +7706,7 @@
                 <Pin Id="OmhzjIQt1CkPNK91Z35a2M" Name="Value" Kind="InputPin" />
                 <Pin Id="MLcn6Zx9xvcPaGd1WnsCZL" Name="Output" Kind="OutputPin" />
                 <Pin Id="H7WYNcelkFIOkE54VehiMx" Name="Value" Kind="OutputPin" />
+                <Pin Id="KpO6DgdvS9cORLg6cvSvZH" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="KQUhP1kSdKYLXNYngwGhkk" SlotId="M5JGqTQnekuN57tzrMoNTH" Bounds="662,1667" />
               <Overlay Id="GrB79NSNWx8MOIOczjuJN7" Name="Cloned Embedding 1D" Bounds="80,1150,1495,631">
@@ -7714,6 +7724,7 @@
                 <Pin Id="VipbSNMrAzsQABDV6wLKRH" Name="Value" Kind="InputPin" />
                 <Pin Id="DMRCNkoqfgfM2J2CR87lwQ" Name="Output" Kind="OutputPin" />
                 <Pin Id="StrGQMHNTKNMa57A4EmgBt" Name="Value" Kind="OutputPin" />
+                <Pin Id="DTyp92bNgjGMSW4XjKYoLm" Name="Author" Kind="InputPin" IsHidden="true" />
               </Node>
               <Pad Id="OfrU1zkxeyUO8qgwRTbVPy" Bounds="882,1679">
                 <p:TypeAnnotation LastCategoryFullName="Kairos.Runtime.Core.SamplingPositionProvider" LastDependency="VL.Kairos.Runtime.Core.vl">
@@ -9085,6 +9096,7 @@
               <Pin Id="NhhJI075b9yMVT4eKVdONv" Name="Value" Kind="InputPin" />
               <Pin Id="VdaVV0jqxJyLdvIcVZ9sC7" Name="Output" Kind="OutputPin" />
               <Pin Id="N0aUAVVNCg8MZuGE8pxF19" Name="Value" Kind="OutputPin" />
+              <Pin Id="FdRBwAuEd38Oe5wSu7jwZD" Name="Author" Kind="InputPin" IsHidden="true" />
             </Node>
             <Node Bounds="306,862,91,19" Id="ICK3fJpK9pKPWimYvD6UYI">
               <p:NodeReference LastCategoryFullName="Kairos.Common.Factory" LastDependency="VL.Kairos.Runtime.Core.vl">
