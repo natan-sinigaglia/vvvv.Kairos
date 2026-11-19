@@ -4594,8 +4594,11 @@
             <Choice Kind="ClassDefinition" Name="Class" />
           </p:NodeReference>
           <p:Interfaces>
-            <TypeReference LastCategoryFullName="StructureX" LastDependency="VL.StructureX.vl">
+            <TypeReference LastCategoryFullName="Kairos.Track" LastDependency="VL.Kairos.Runtime.Core.vl">
               <Choice Kind="InterfaceTypeFlag" Name="ITrack" />
+              <CategoryReference Kind="Category" Name="Track" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Kairos" NeedsToBeDirectParent="true" />
+              </CategoryReference>
             </TypeReference>
           </p:Interfaces>
           <Patch Id="NrK6IECYCBoQGBqxEWjR3r" IsGeneric="true" ExplicitTypeParameters="T">

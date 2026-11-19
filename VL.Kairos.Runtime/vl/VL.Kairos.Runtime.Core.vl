@@ -24324,8 +24324,11 @@
                 </p:TypeAnnotation>
               </Slot>
               <Slot Id="IuLABb4YaRgPvd1No1q9ds" Name="Track">
-                <p:TypeAnnotation p:Type="TypeReference">
+                <p:TypeAnnotation p:Type="TypeReference" LastCategoryFullName="Kairos.Track" LastDependency="VL.Kairos.Runtime.Core.vl">
                   <Choice Kind="TypeFlag" Name="ITrack" />
+                  <CategoryReference Kind="Category" Name="Track" NeedsToBeDirectParent="true">
+                    <p:OuterCategoryReference Kind="Category" Name="Kairos" NeedsToBeDirectParent="true" />
+                  </CategoryReference>
                   <p:TypeArguments>
                     <TypeReference>
                       <Choice Kind="TypeFlag" Name="T" />
@@ -28179,6 +28182,5 @@
   <DocumentDependency Id="TADROdiqlnXNaObdVLQiV7" Location="./TypeForwards.vl" IsFriend="true" />
   <NugetDependency Id="NKKoDC2vdSNMzZUwNeHncX" Location="VL.IO.Midi" Version="2.0.4" />
   <NugetDependency Id="NzWyo4FY2DmNRd8dx9bxjm" Location="VL.Core" Version="2025.7.0" />
-  <NugetDependency Id="TJKYGuq5xtIMPzRsZh8735" Location="VL.Kairos.Runtime" Version="0.0.0" />
   <PlatformDependency Id="IxvXdSp8i8EMoib404lcai" Location="../lib/net8.0/VL.Kairos.Runtime.CSharp.dll" />
 </Document>
