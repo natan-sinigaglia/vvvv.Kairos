@@ -346,8 +346,19 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
+# Project specifics
+
 /vl/*.vl.dll
 /Kairos.vl.dll
 .vl/
 /VL.Touchy/lib
 /VL.Kairos.Runtime/lib/*
+
+# Fallout
+
+# Fallout working directory
+.fallout/temp/
+
+# Per-developer local settings
+.fallout/parameters.local.json
