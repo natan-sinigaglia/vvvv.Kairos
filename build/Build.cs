@@ -99,7 +99,6 @@ class Build : FalloutBuild
                     NuGetTasks.NuGetPack(p => p
                         .SetTargetPath(RootDirectory / package / $"deployment/{package}.nuspec")
                         .SetOutputDirectory(ArtifactsDirectory)
-                        .SetProperty("kairos-version", Version)
                         .SetVersion(Version));
                 }
                 catch (Exception e)
