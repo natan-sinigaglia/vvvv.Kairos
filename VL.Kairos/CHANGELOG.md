@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.5.3 (VL.Kairos and VL.Kairos.Runtime)
+#### Fixes
+- Fixed "Cycle detected" reported for VL.Kairos.KeyframeEditorUI, the HDE plugin and the help patches (packages referenced themselves)
+- Fixed ambiguous ITrack reference (Kairos.Track.ITrack vs Animation.ITrack) in VL.Kairos.Runtime
+- Fixed missing "Fill-Background-Dark Blue Transparent" style: the KeyframeEditor stopped drawing when a Vector3/Vector4 track became visible
+
 ### 2.5.0
 #### General
 - kairos works with vvvv gamma 7.0 stable
