@@ -362,3 +362,6 @@ MigrationBackup/
 
 # Per-developer local settings
 .fallout/parameters.local.json
+
+# Rider
+.idea
