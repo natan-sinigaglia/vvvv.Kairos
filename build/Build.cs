@@ -1,21 +1,16 @@
 using System;
-using System.Linq;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
 using Fallout.Common;
-using Fallout.Common.CI;
-using Fallout.Common.Execution;
 using Fallout.Common.IO;
-using static Fallout.Common.Tools.DotNet.DotNetTasks;
-using Fallout.Solutions;
-using Fallout.Common.Tooling;
 using Fallout.Common.Tools.DotNet;
+using static Fallout.Common.Tools.DotNet.DotNetTasks;
+using static Fallout.Common.Tools.Git.GitTasks;
+using System.IO;
+using Fallout.Common.Tools.Git;
+using System.Collections.Generic;
 using Fallout.Common.Tools.NuGet;
-using Fallout.Common.Utilities.Collections;
 using Serilog;
-using static Fallout.Common.EnvironmentInfo;
-using static Fallout.Common.IO.PathConstruction;
+using Octokit;
+using Fallout.Common.Tooling;
 
 class Build : FalloutBuild
 {
@@ -25,14 +20,20 @@ class Build : FalloutBuild
     AbsolutePath VersionFile => RootDirectory / "version.txt";
     string Version => File.ReadAllText(VersionFile).Trim();
 
+    [Parameter("Nuget feed URL")] readonly string NugetSource = "https://api.nuget.org/v3/index.json";
+
+    [Parameter("NuGet API Key")] [Secret] private readonly string NuGetApiKey = string.Empty;
+
+    [Parameter("GitHub token")] [Secret] private readonly string GithubToken = string.Empty;
+
     // Package names
     private IReadOnlyList<string> Packages => new[]
     {
         "VL.AlchemX",
         "VL.Kairos",
-        "VL.Kairos.Fuse",
+        // "VL.Kairos.Fuse",
         "VL.Kairos.Runtime",
-        "VL.Kairos.Stride",
+        // "VL.Kairos.Stride",
         "VL.LayerX",
         "VL.Touchy"
     };
@@ -41,7 +42,7 @@ class Build : FalloutBuild
     AbsolutePath AlchemXProject => RootDirectory / "VL.AlchemX" / "src" / "AlchemX" / "AlchemX.csproj";
 
     // Kairos.Runtime
-    AbsolutePath KairosRuntimeProject => RootDirectory / "VL.AlchemX" / "src" / "VL.Kairos.Runtime.CSharp" /
+    AbsolutePath KairosRuntimeProject => RootDirectory / "VL.Kairos.Runtime" / "src" / "VL.Kairos.Runtime.CSharp" /
                                          "VL.Kairos.Runtime.CSharp.csproj";
 
     // Touchy
@@ -106,6 +107,68 @@ class Build : FalloutBuild
                     Log.Error(e, $"Failed to pack {package}");
                     throw;
                 }
+            }
+        });
+
+    private Target Publish => _ => _
+        .DependsOn(Pack)
+        //.OnlyWhenStatic(() => IsServerBuild)
+        .Requires(() => NuGetApiKey)
+        .Requires(() => GithubToken)
+        .Executes(async () =>
+        {
+            Log.Information("Publishing packages");
+
+            // Push to nuget.org
+            foreach (var package in Packages)
+            {
+                try
+                {
+                    var packageFileName = $"{package}.{Version}.nupkg";
+                    Assert.FileExists(ArtifactsDirectory / packageFileName);
+
+                    DotNetNuGetPush(p => p
+                        .SetSource(NugetSource)
+                        .SetApiKey(NuGetApiKey)
+                        .SetTargetPath(ArtifactsDirectory / packageFileName));
+                }
+                catch (Exception e)
+                {
+                    Log.Error(e, $"Failed to publish {package}");
+                    throw;
+                }
+            }
+
+            // Create GitHub release
+            var client = new GitHubClient(new ProductHeaderValue("kairos.fallout"))
+            {
+                Credentials = new Credentials(NuGetApiKey)
+            };
+
+            var release = new NewRelease(Version)
+            {
+                Name = Version,
+                Body = ""
+            };
+
+            var result = await client.Repository.Release.Create("vvvv", "vvvv.Kairos", release);
+
+            // Upload GitHub release artifacts
+            var lastRelease = await client.Repository.Release.GetLatest("vvvv", "vvvv.Kairos");
+            var artifacts = ArtifactsDirectory.GlobFiles("*.nupkg");
+
+            foreach (var artifact in artifacts)
+            {
+                var releaseAsset = new ReleaseAssetUpload()
+                {
+                    FileName = artifact.Name,
+                    RawData = File.OpenRead(artifact),
+                    ContentType = "application/octet-stream"
+                };
+                
+                Log.Information($"Uploading {releaseAsset.FileName}");
+                
+                var upload = await client.Repository.Release.UploadAsset(lastRelease, releaseAsset);
             }
         });
 }
