@@ -24,7 +24,7 @@ class Build : FalloutBuild
 
     [Parameter("NuGet API Key")] [Secret] private readonly string NuGetApiKey = string.Empty;
 
-    [Parameter("GitHub token")] [Secret] private readonly string GithubToken = string.Empty;
+    [Parameter("GitHub token")] [Secret] private readonly string GitHubToken = string.Empty;
 
     // Package names
     private IReadOnlyList<string> Packages => new[]
@@ -114,7 +114,7 @@ class Build : FalloutBuild
         .DependsOn(Pack)
         //.OnlyWhenStatic(() => IsServerBuild)
         .Requires(() => NuGetApiKey)
-        .Requires(() => GithubToken)
+        .Requires(() => GitHubToken)
         .Executes(async () =>
         {
             Log.Information("Publishing packages");
@@ -142,7 +142,7 @@ class Build : FalloutBuild
             // Create GitHub release
             var client = new GitHubClient(new ProductHeaderValue("kairos.fallout"))
             {
-                Credentials = new Credentials(NuGetApiKey)
+                Credentials = new Credentials(GitHubToken)
             };
 
             var release = new NewRelease(Version)
